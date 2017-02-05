@@ -7,6 +7,7 @@
   </head>
   <body>
 
+
     <table>
      <tr>
     <td colspan="5" rowspan="2">
@@ -24,9 +25,9 @@
     </tr>
     <tr>
     <td><input class = "but" type="button" name="<-"  value = "<-"></td>
-    <td><input class = "but" type="button" name="CE"  value = "CE"></td>
-    <td><input class = "but" type="button" name="C"  value = "C"></td>
-    <td><input class = "but" type="button" name="+/-"  value = "+/-"></td>
+    <td><input class = "but" type="button" name="CE"  value = "CE" onclick="cleanLast()"></td>
+    <td><input class = "but" type="button" name="C"  value = "C" onclick="clean()"></td>
+    <td><input class = "but" type="button" name="+/-"  value = "+/-" onclick="chageSign()"></td>
     <td><input class = "but" type="button" name="sqrt"  value = "sqrt"></td>
     </tr>
     <tr>
@@ -41,7 +42,7 @@
     <td><input class = "but" type="button" name="5" value = "5" onclick="sendValueToInput(this.value)"></td>
     <td><input class = "but" type="button" name="6" value = "6" onclick="sendValueToInput(this.value)"></td>
     <td><input class = "but" type="button" name="*" value = "*" onclick="sendValueToInput(this.value)"></td>
-    <td><input class = "but" type="button" name="1/x" value = "1/x"></td>
+    <td><input class = "but" type="button" name="1/x" value = "1/x" onclick="oneX()"></td>
     </tr>
     <tr>
     <td><input class = "but" type="button" name="1" value = "1" onclick="sendValueToInput(this.value)"></td>
@@ -52,7 +53,7 @@
     </tr>
     <tr>
     <td colspan="2"><input class = "but" type="button" name="0" value = "0" onclick="sendValueToInput(this.value)"></td>
-    <td><input class = "but" type="button" name=","  value = "," onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name=","  value = "." onclick="sendValueToInput(this.value)"></td>
     
     <td><input class = "but" type="button" name="+" value = "+" 
     onclick="sendValueToInput(this.value)"></td>

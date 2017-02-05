@@ -1,24 +1,31 @@
+*{
+	
+	 
+}
 table{
 	border-collapse: collapse;
-	text-align: center;
-	border: 10px solid grey;	
+	text-align: center;		
 	width: 50%;
 	margin: auto;
+	background: linear-gradient(to top, #C8CCC7, #353635);
 }
 td {
 	border: none;
-	background-color: grey;
+	background-color: linear-gradient(to top, #C8CCC7, #353635);
 	}
 .but{
 	width: 70%;
 	height: : 70%;
-	background-color: grey;
+	background-color: linear-gradient(to top, #C8CCC7, #353635);
 	display:block; 
 	margin: auto;
+	text-align: center;
 	outline: none;
+	border-radius:  5px;
+	background: linear-gradient(to top, #C8CCC7, #353635);
 	}
 .input{
-	width: 100%;
+	width: 80%;
 	height: 100%;
 	float: clear;
 	text-align: right;
