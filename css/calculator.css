@@ -1,0 +1,21 @@
+table{
+	border-collapse: collapse;
+	text-align: center;
+	border: 1px solid grey;
+	border:1 px solid grey;
+	width: 50%;
+	margin: auto;
+}
+td {
+	border: none;
+	
+	}
+.but{width: 100%;
+	height: 100%;
+	display:block; 
+	}
+.input{
+	width: 100%;
+	height: 100%;
+
+}
