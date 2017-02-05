@@ -1,1 +1,0 @@
-Calculator by Grischenko Vladimir.

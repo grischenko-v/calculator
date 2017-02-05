@@ -1,1 +1,1 @@
-Calculator.
+Calculator by Vladimir Grischenko.
