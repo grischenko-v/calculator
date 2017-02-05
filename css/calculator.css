@@ -1,21 +1,25 @@
 table{
 	border-collapse: collapse;
 	text-align: center;
-	border: 1px solid grey;
-	border:1 px solid grey;
+	border: 10px solid grey;	
 	width: 50%;
 	margin: auto;
 }
 td {
 	border: none;
-	
+	background-color: grey;
 	}
-.but{width: 100%;
-	height: 100%;
+.but{
+	width: 70%;
+	height: : 70%;
+	background-color: grey;
 	display:block; 
+	margin: auto;
+	outline: none;
 	}
 .input{
 	width: 100%;
 	height: 100%;
-
+	float: clear;
+	text-align: right;
 }

@@ -3,63 +3,62 @@
   <head>
     <meta charset = "UTF-8">
     <link rel="stylesheet" type="text/css" href="css/calculator.css">
-    <title>TITLE</title>
+    <title>MyCalculator</title>
   </head>
   <body>
 
- 	<table>
- 	<tr>
-<td colspan="5" rowspan="2">
-<input class = "input" type="text" name="name" id = "name" placeholder="enter value" >
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td><input class = "but" type="button" name="MC" id = "MC" value = "MC"></td>
-<td><input class = "but" type="button" name="MR" id = "MR" value = "MR"></td>
-<td><input class = "but" type="button" name="MS" id = "MS" value = "MS"></td>
-<td><input class = "but" type="button" name="M+" id = "M+" value = "M+"></td>
-<td><input class = "but" type="button" name="M-" id = "M-" value = "M-"></td>
+    <table>
+     <tr>
+    <td colspan="5" rowspan="2">
+    <input class = "input" type="text" id = "input" name="name"  placeholder="enter value"  >
+    </td>
+    </tr>
+    <tr></tr>
+    <tr>
+    <td><input class = "but" type="button" name="MC"  value = "MC"></td>
+    <td><input class = "but" type="button" name="MR"  value = "MR"></td>
+    <td><input class = "but" type="button" name="MS"  value = "MS"></td>
+    <td><input class = "but" type="button" name="M+"  value = "M+"></td>
+    <td><input class = "but" type="button" name="M-"  value = "M-"></td>
 
-</tr>
-<tr>
-<td><input class = "but" type="button" name="<-" id = "<-" value = "<-"></td>
-<td><input class = "but" type="button" name="CE" id = "CE" value = "CE"></td>
-<td><input class = "but" type="button" name="C" id = "C" value = "C"></td>
-<td><input class = "but" type="button" name="+/-" id = "change_abs" value = "+/-"></td>
-<td><input class = "but" type="button" name="sqrt" id = "sqrt" value = "sqrt"></td>
-</tr>
-
-<tr>
-<td><input class = "but" type="button" name="7" id = "7" value = "7"></td>
-<td><input class = "but" type="button" name="8" id = "8" value = "8"></td>
-<td><input class = "but" type="button" name="9" id = "9" value = "9"></td>
-<td><input class = "but" type="button" name="/" id = "/" value = "/"></td>
-<td><input class = "but" type="button" name="%" id = "%" value = "%"></td>
-</tr>
-<tr>
-<td><input class = "but" type="button" name="4" id = "4" value = "4"></td>
-<td><input class = "but" type="button" name="5" id = "5" value = "5"></td>
-<td><input class = "but" type="button" name="6" id = "6" value = "6"></td>
-<td><input class = "but" type="button" name="*" id = "*" value = "*"></td>
-<td><input class = "but" type="button" name="1/x" id = "1/x" value = "1/x"></td>
-</tr>
-<tr>
-<td><input class = "but" type="button" name="1" id = "1" value = "1"></td>
-<td><input class = "but" type="button" name="2" id = "2" value = "2"></td>
-<td><input class = "but" type="button" name="3" id = "3" value = "3"></td>
-<td><input class = "but" type="button" name="-" id = "-" value = "-"></td>
-<td rowspan="2"><input class = "but" type="button" name="=" id = "=" value = "="></td>
-</tr>
-<tr>
-<td colspan="2"><input class = "but" type="button" name="0" id = "0" value = "0"></td>
-
-<td><input class = "but" type="button" name="," id = "," value = ","></td>
-<td><input class = "but" type="button" name="+" id = "+" value = "+"></td>
-
-</tr>
+    </tr>
+    <tr>
+    <td><input class = "but" type="button" name="<-"  value = "<-"></td>
+    <td><input class = "but" type="button" name="CE"  value = "CE"></td>
+    <td><input class = "but" type="button" name="C"  value = "C"></td>
+    <td><input class = "but" type="button" name="+/-"  value = "+/-"></td>
+    <td><input class = "but" type="button" name="sqrt"  value = "sqrt"></td>
+    </tr>
+    <tr>
+    <td><input class = "but" type="button" onclick="sendValueToInput(this.value)" value = "7" ></td>  
+    <td><input class = "but" type="button" name="8" value = "8" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="9"  value = "9" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="/"  value = "/" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="%" value = "%"></td>
+    </tr>
+    <tr>
+    <td><input class = "but" type="button" name="4" value = "4" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="5" value = "5" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="6" value = "6" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="*" value = "*" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="1/x" value = "1/x"></td>
+    </tr>
+    <tr>
+    <td><input class = "but" type="button" name="1" value = "1" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="2" value = "2" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="3" value = "3" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name="-" value = "-" onclick="sendValueToInput(this.value)"></td>
+    <td rowspan="2"><input class = "but" type="button" name="=" value = "=" onclick="calcResult()"></td>
+    </tr>
+    <tr>
+    <td colspan="2"><input class = "but" type="button" name="0" value = "0" onclick="sendValueToInput(this.value)"></td>
+    <td><input class = "but" type="button" name=","  value = "," onclick="sendValueToInput(this.value)"></td>
+    
+    <td><input class = "but" type="button" name="+" value = "+" 
+    onclick="sendValueToInput(this.value)"></td>
+    </tr>
  </table>
-
+  <script type="text/javascript" src = "js/calculator.js"></script>
   </body>
-  </html>
+</html>
 <!-- </html> -->
