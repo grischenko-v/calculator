@@ -1,17 +1,21 @@
 *{
-	
-	 
+	font: 'PT Sans', Arial;	 
+    
 }
 table{
 	border-collapse: collapse;
 	text-align: center;		
 	width: 50%;
+	height: 120%;
 	margin: auto;
 	background: linear-gradient(to top, #C8CCFF, #353635);
+    border-radius: 10px;
 }
 td {
 	border: none;
 	background-color: linear-gradient(to top, #C8CCFF, #353635);
+	border-radius: 20px;
+
 	}
 .but{
 	width: 70%;
@@ -21,12 +25,15 @@ td {
 	margin: auto;
 	text-align: center;
 	outline: none;
-	border-radius:  5px;
+	border-radius:  50%;
+	font-size: 70%;
 	background: linear-gradient(to top, #C8CCFF, #353635);
 	}
 .input{
 	width: 80%;
-	height: 100%;
+	font-size: 20px;
+	height: 35px;
 	float: clear;
 	text-align: right;
+	border-radius: 10px;
 }

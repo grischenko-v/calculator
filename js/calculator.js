@@ -26,11 +26,13 @@ cleanLast = function(){
    
 };
 oneX = function(){
-	Number(myVar)=1/Number(myVar);
+	myVar=1/Number(myVar);
 	updateResInput();
 };
 chageSign = function(){
-	Number(myVar)=Number(-myVarl);
+	var temp = Number(myVar);
+	temp = - temp;
+	myVar= temp;
 	updateResInput();
 };
 backspace = function(){
