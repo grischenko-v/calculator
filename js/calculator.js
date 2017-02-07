@@ -1,22 +1,20 @@
 
 var myVar = "", recentSymbol="";
-var sendValueToInput, calcResult, clean, updateResInpu, cleanLast, oneX, chageSign;
+var sendValueToInput, calcResult, clean, updateResInpu, cleanLast, oneX, chageSign, backspace;
 
 sendValueToInput = function(value) {  
   recentSymbol=value;
-  myVar+=value;
+  myVar+=value.toString();
   updateResInput()
 };
 
 calcResult = function(){
-	var pattern_nums =/\d+/g;
-	var pattern =/\+/g;
-	var nums, calc_sign;
-	var check_pattern =/\d+[-*+//]\d+/g
-	nums = myVar.match(pattern_nums);
-    calc_sign = myVar.match(pattern);
-    alert(Number(nums[0]) + Number(nums[1]));
+	var pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/;	
+	if(pattern_nums.test(myVar)) myVar=eval(myVar);    
+    else myVar ="Wrong Value";
+    updateResInput();
 };
+
 clean = function(){
 	myVar="";
 	updateResInput()
@@ -34,4 +32,7 @@ oneX = function(){
 chageSign = function(){
 	Number(myVar)=Number(-myVarl);
 	updateResInput();
+};
+backspace = function(){
+
 };

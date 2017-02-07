@@ -7,22 +7,22 @@ table{
 	text-align: center;		
 	width: 50%;
 	margin: auto;
-	background: linear-gradient(to top, #C8CCC7, #353635);
+	background: linear-gradient(to top, #C8CCFF, #353635);
 }
 td {
 	border: none;
-	background-color: linear-gradient(to top, #C8CCC7, #353635);
+	background-color: linear-gradient(to top, #C8CCFF, #353635);
 	}
 .but{
 	width: 70%;
 	height: : 70%;
-	background-color: linear-gradient(to top, #C8CCC7, #353635);
+	background-color: linear-gradient(to top, #C8CCFF, #353635);
 	display:block; 
 	margin: auto;
 	text-align: center;
 	outline: none;
 	border-radius:  5px;
-	background: linear-gradient(to top, #C8CCC7, #353635);
+	background: linear-gradient(to top, #C8CCFF, #353635);
 	}
 .input{
 	width: 80%;
