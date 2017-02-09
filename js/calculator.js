@@ -3,8 +3,8 @@ var myVar = "", recentSymbol="";
 var sendValueToInput, calcResult, clean, updateResInpu, cleanLast, oneX, chageSign, backspace;
 
 sendValueToInput = function(value) {  
-  recentSymbol=value;
-  myVar+=value.toString();
+  recentSymbol=value;  
+  myVar+=value;
   updateResInput()
 };
 
@@ -20,7 +20,7 @@ clean = function(){
 	updateResInput()
 };
 updateResInput = function(){
-	document.getElementById('input').value = myVar;
+	document.getElementById('screen').innerHTML = myVar;
 };
 cleanLast = function(){
    

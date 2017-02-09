@@ -9,7 +9,7 @@
 
 
   <dir class = "container">
-  <div class = "main-screen">123</div>
+  <div class = "main-screen" id="screen"></div>
 
   <div class = "buttons-row">
     <div class = "button" value = "mc">mc</div>
@@ -19,31 +19,31 @@
   </div>
   <div class = "buttons-row">
    <div class = "button">c</div>
-   <div class = "button">&#177</div>
-   <div class = "button">&#247</div>
-   <div class = "button">&#215</div>
+   <div class = "button" onclick="chageSign()">&#177</div>
+   <div class = "button" onclick="sendValueToInput('/')">&#247</div>
+   <div class = "button" onclick="sendValueToInput('*')">&#215</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button">7</div>
-   <div class = "button">8</div>
-   <div class = "button">9</div>
-   <div class = "button">-</div>
+   <div class = "button" onclick="sendValueToInput('7')">7</div>
+   <div class = "button" onclick="sendValueToInput('8')">8</div>
+   <div class = "button" onclick="sendValueToInput('9')">9</div>
+   <div class = "button" onclick="sendValueToInput('-')">-</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button">4</div>
-   <div class = "button">5</div>
-   <div class = "button">6</div>
-   <div class = "button">+</div>
+   <div class = "button" onclick="sendValueToInput('4')">4</div>
+   <div class = "button" onclick="sendValueToInput('5')">5</div>
+   <div class = "button" onclick="sendValueToInput('6')">6</div>
+   <div class = "button" onclick="sendValueToInput('+')">+</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button">1</div>
-   <div class = "button">2</div>
-   <div class = "button">3</div>
-   <div class = "button equil">=</div>
+   <div class = "button" onclick="sendValueToInput('1')">1</div>
+   <div class = "button" onclick="sendValueToInput('2')">2</div>
+   <div class = "button" onclick="sendValueToInput('3')">3</div>
+   <div class = "button equil" onclick="calcResult()">=</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button zero">0</div>  
-   <div class = "button">.</div>  
+   <div class = "button zero" onclick="sendValueToInput('0')">0</div>  
+   <div class = "button" onclick="sendValueToInput('.')">.</div>  
   </div>
   </dir>
   <script type="text/javascript" src = "js/calculator.js"></script>

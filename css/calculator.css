@@ -22,8 +22,7 @@ body{
    border: 1px solid grey;
    border-radius: 20px;
    text-align: right;
-   background: url(../img/brushed.png);
-   
+   background: url(../img/brushed.png);   
 }
 
 .buttons-row{
@@ -31,6 +30,7 @@ body{
 	width: 222px;
 	height: 50px;
 	margin: 0;
+	margin: auto;
 	border: 1px solid grey;
 	background: url(../img/brushed_alu_dark.png);
 }
