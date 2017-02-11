@@ -4,13 +4,14 @@ var sendValueToInput, calcResult, clean, updateResInpu, cleanLast, oneX, chageSi
 
 sendValueToInput = function(value) {  
   recentSymbol=value;  
-  if(myVar.length < 16) myVar+=value;
+  //if(myVar.length < 16) 
+  myVar+=value;
   updateResInput()
 };
 calcResult = function(){
 	var pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/;	
-	if(pattern_nums.test(myVar)) myVar=eval(myVar);    
-    else myVar ="Wrong Value";
+	if(pattern_nums.test(myVar)) myVar=eval(myVar).toString(); 
+    else myVar ="Wrong Value"; 
     updateResInput();
 };
 clean = function(){
@@ -19,7 +20,7 @@ clean = function(){
 };
 
 updateResInput = function(){
-	var elem = document.getElementById('screen');
+	var elem = document.getElementById('screen');	
     if(myVar.length < 5)  elem.style.fontSize  = '70px';
 	else if(myVar.length >= 5 && myVar.length < 8) elem.style.fontSize = '50px';
 	else if(myVar.length >= 8 && myVar.length < 10) elem.style.fontSize = '40px';
@@ -30,6 +31,6 @@ updateResInput = function(){
 chageSign = function(){
 	var temp = Number(myVar);
 	temp = - temp;
-	myVar= temp;
+	myVar = temp.toString();
 	updateResInput();
 };
