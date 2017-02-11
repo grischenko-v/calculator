@@ -4,7 +4,7 @@ var sendValueToInput, calcResult, clean, updateResInpu, cleanLast, oneX, chageSi
 
 sendValueToInput = function(value) {  
   recentSymbol=value;  
-  myVar+=value;
+  if(myVar.length < 16) myVar+=value;
   updateResInput()
 };
 calcResult = function(){
@@ -17,7 +17,14 @@ clean = function(){
 	myVar="";
 	updateResInput()
 };
+
 updateResInput = function(){
+	var elem = document.getElementById('screen');
+    if(myVar.length < 5)  elem.style.fontSize  = '70px';
+	else if(myVar.length >= 5 && myVar.length < 8) elem.style.fontSize = '50px';
+	else if(myVar.length >= 8 && myVar.length < 10) elem.style.fontSize = '40px';
+	else if(myVar.length >= 10 && myVar.length < 12) elem.style.fontSize  = '30px';
+	else if(myVar.length >=12) elem.style.fontSize  = '22px';	
 	document.getElementById('screen').innerHTML = myVar;
 };
 chageSign = function(){
