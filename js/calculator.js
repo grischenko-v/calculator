@@ -32,8 +32,7 @@ updateResInput = function(){
 chageSign = function(){
 	var temp = Number(myVar);
 	temp = - temp;
-	myVar = temp.toString();
-	
+	myVar = temp.toString();	
 	updateResInput();
 };
 MC = function(){
@@ -41,11 +40,11 @@ MC = function(){
  };
  Mplus = function(){
   memValue = Number(myVar);
+
  };
  Mmin = function(){
   memValue = -Number(myVar);
  };
-MR = function(){
-  myVar=memValue.toString();
-  updateResInput()
+MR = function(){ 
+  sendValueToInput(memValue.toString());
 };

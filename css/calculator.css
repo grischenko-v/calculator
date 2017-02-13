@@ -24,6 +24,7 @@ body{
    margin: auto;
    overflow: auto;
    background: url(../img/brushed.png);   
+   position: relative;
 }
 .buttons-row{ 
 	display: block;
@@ -97,12 +98,15 @@ body{
  	width: 5px;
  	height: 5px;
  	display: block;
- 	opacity: 0.7;
+ 	opacity: 0.7; 	
  }
  .mem-sign{
  	position:absolute;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-    background-color: #F00;
+    bottom: 6px;
+    left: 6px;
+    font-size: 15px;
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    z-index: 1;
  }
