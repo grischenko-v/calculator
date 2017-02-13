@@ -99,3 +99,10 @@ body{
  	display: block;
  	opacity: 0.7;
  }
+ .mem-sign{
+ 	position:absolute;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #F00;
+ }

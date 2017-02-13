@@ -33,6 +33,7 @@ chageSign = function(){
 	var temp = Number(myVar);
 	temp = - temp;
 	myVar = temp.toString();
+	
 	updateResInput();
 };
 MC = function(){
