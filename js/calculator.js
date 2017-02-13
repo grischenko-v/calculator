@@ -1,7 +1,8 @@
 
 var myVar = "", recentSymbol="";
+var memValue;
 var sendValueToInput, calcResult, clean, updateResInpu, cleanLast, oneX, chageSign, backspace;
-
+var MC, Mplus, Mmin, MR;
 sendValueToInput = function(value) {  
   recentSymbol=value;  
   //if(myVar.length < 16) 
@@ -33,4 +34,17 @@ chageSign = function(){
 	temp = - temp;
 	myVar = temp.toString();
 	updateResInput();
+};
+MC = function(){
+  memValue = 0;
+ };
+ Mplus = function(){
+  memValue = Number(myVar);
+ };
+ Mmin = function(){
+  memValue = -Number(myVar);
+ };
+MR = function(){
+  myVar=memValue.toString();
+  updateResInput()
 };
