@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 body{
 	font-family: 'PT Sans', Arial;	 
     background: url(../img/seamless_paper_texture.png);
+=======
+*{
+	font-family: 'PT Sans', Arial;	 
+    
+>>>>>>> 9369bc67d0f65b979d3a59f5c3c865cea3d06252
 }
 .container{   
    border: 1px solid grey;
@@ -31,6 +37,7 @@ body{
 	height: 50px;
 	margin: 0;
 	margin: auto;
+<<<<<<< HEAD
 	border: 1px solid grey;
 	background: url(../img/brushed_alu_dark.png);
 }
@@ -99,3 +106,19 @@ body{
  	display: block;
  	opacity: 0.7;
  }
+=======
+	text-align: center;
+	outline: none;
+	border-radius:  50%;
+	font-size: 70%;
+	background: linear-gradient(to top, #C8CCFF, #353635);
+	}
+.input{
+	width: 80%;
+	font-size: 20px;
+	height: 35px;
+	float: clear;
+	text-align: right;
+	border-radius: 10px;
+}
+>>>>>>> 9369bc67d0f65b979d3a59f5c3c865cea3d06252
