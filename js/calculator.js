@@ -1,6 +1,6 @@
 
 var myVar = "";
-var memValue;
+var memValue = "";
 var sendValueToInput, calcResult, clean, updateResInpu, cleanLast, oneX, chageSign, backspace;
 var MC, Mplus, Mmin, MR;
 sendValueToInput = function(value) {     
@@ -26,7 +26,7 @@ updateResInput = function(){
 	else if(myVar.length >= 8 && myVar.length < 10) elem.style.fontSize = '40px';
 	else if(myVar.length >= 10 && myVar.length < 12) elem.style.fontSize  = '30px';
 	else if(myVar.length >=12) elem.style.fontSize  = '22px';	
-	document.getElementById('screen').innerHTML = myVar;
+	document.getElementById('screen').innerHTML = '<div id="mem-sign">M</div>' + myVar;
 };
 chageSign = function(){
 	var temp = Number(myVar);
@@ -35,19 +35,31 @@ chageSign = function(){
 	updateResInput();
 };
 MC = function(){
-  memValue = 0;
-
+  memValue = "";
+  var memSign = document.getElementById('mem-sign');
+  memSign.style.display = 'none';
  };
 Mplus = function(){
    var memSign;
-   memValue = Number(myVar);
+   memValue += Number(myVar);
    memSign = document.getElementById('mem-sign');
    memSign.style.display = 'block';
-
  };
 Mmin = function(){
-  memValue = -Number(myVar);
+  memValue -= Number(myVar);
+  var memSign = document.getElementById('mem-sign');
+  memSign.style.display = 'block';
  };
 MR = function(){ 
-  sendValueToInput(memValue.toString());
+ var pattern_nums = /[/*///+/-]/;	
+
+  var memSign = document.getElementById('mem-sign');
+  memSign.style.display = 'block';  
+  if(pattern_nums.test(myVar.slice(-1))){
+     sendValueToInput(memValue);
+  } else {
+  	myVar = memValue;
+  	updateResInput();
+  }
+  
 };
