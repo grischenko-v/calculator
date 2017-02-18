@@ -43,6 +43,7 @@ chageSign = function(){
 };
 MC = function(){
   mem_on = false;  
+  memValue = '';
   updateResInput();
  };
 Mplus = function(){ 
