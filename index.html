@@ -12,38 +12,38 @@
   <div class = "main-screen" id="screen"> <div id="mem-sign">M</div></div>
 
   <div class = "buttons-row">
-    <div class = "button" onclick="MC()" value = "mc">mc</div>
-    <div class = "button" onclick="Mplus()">m+</div>
-    <div class = "button" onclick="Mmin()">m-</div>
-    <div class = "button" onclick="MR()">mr</div>
+    <div class = "button" onclick="calc.MC()" value = "mc">mc</div>
+    <div class = "button" onclick="calc.Mplus()">m+</div>
+    <div class = "button" onclick="calc.Mmin()">m-</div>
+    <div class = "button" onclick="calc.MR()">mr</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button" onclick="clean()">c</div>
-   <div class = "button" onclick="chageSign()">&#177</div>
-   <div class = "button" onclick="sendValueToInput('/')">&#247</div>
-   <div class = "button" onclick="sendValueToInput('*')">&#215</div>
+   <div class = "button" onclick="calc.clean()">c</div>
+   <div class = "button" onclick="calc.chageSign()">&#177</div>
+   <div class = "button" onclick="calc.sendValueToInput('/')">&#247</div>
+   <div class = "button" onclick="calc.sendValueToInput('*')">&#215</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button" onclick="sendValueToInput('7')">7</div>
-   <div class = "button" onclick="sendValueToInput('8')">8</div>
-   <div class = "button" onclick="sendValueToInput('9')">9</div>
-   <div class = "button" onclick="sendValueToInput('-')">-</div>
+   <div class = "button" onclick="calc.sendValueToInput('7')">7</div>
+   <div class = "button" onclick="calc.sendValueToInput('8')">8</div>
+   <div class = "button" onclick="calc.sendValueToInput('9')">9</div>
+   <div class = "button" onclick="calc.sendValueToInput('-')">-</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button" onclick="sendValueToInput('4')">4</div>
-   <div class = "button" onclick="sendValueToInput('5')">5</div>
-   <div class = "button" onclick="sendValueToInput('6')">6</div>
-   <div class = "button" onclick="sendValueToInput('+')">+</div>
+   <div class = "button" onclick="calc.sendValueToInput('4')">4</div>
+   <div class = "button" onclick="calc.sendValueToInput('5')">5</div>
+   <div class = "button" onclick="calc.sendValueToInput('6')">6</div>
+   <div class = "button" onclick="calc.sendValueToInput('+')">+</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button" onclick="sendValueToInput('1')">1</div>
-   <div class = "button" onclick="sendValueToInput('2')">2</div>
-   <div class = "button" onclick="sendValueToInput('3')">3</div>
-   <div class = "button equil" onclick="calcResult()">=</div>
+   <div class = "button" onclick="calc.sendValueToInput('1')">1</div>
+   <div class = "button" onclick="calc.sendValueToInput('2')">2</div>
+   <div class = "button" onclick="calc.sendValueToInput('3')">3</div>
+   <div class = "button equil" onclick="calc.calcResult()">=</div>
   </div>
   <div class = "buttons-row">
-   <div class = "button zero" onclick="sendValueToInput('0')">0</div>  
-   <div class = "button" onclick="sendValueToInput('.')">.</div>  
+   <div class = "button zero" onclick="calc.sendValueToInput('0')">0</div>  
+   <div class = "button" onclick="calc.sendValueToInput('.')">.</div>  
   </div>
   </div>
   <script type="text/javascript" src = "js/calculator.js"></script>
