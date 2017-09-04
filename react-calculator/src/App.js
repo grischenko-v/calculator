@@ -28,6 +28,22 @@ class App extends Component {
           <Buttom val = "9"/>
           <Buttom val = "-"/>
         </div>
+        <div className = "buttons-row">   
+          <Buttom val = "4"/>
+          <Buttom val = "5"/>
+          <Buttom val = "6"/>
+          <Buttom val = "+"/>
+        </div>
+        <div className = "buttons-row">   
+          <Buttom val = "1"/>
+          <Buttom val = "2"/>
+          <Buttom val = "3"/>
+          <Buttom val = "=" styleName = "equil"/>
+        </div>       
+         <div className = "buttons-row">   
+          <Buttom val = "0" styleName = "zero"/>
+          <Buttom val = "." />          
+        </div>
         </div>
       </div>
      );
