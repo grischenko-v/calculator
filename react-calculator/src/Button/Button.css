@@ -1,11 +1,10 @@
 
 .button{  
-  margin: auto;
   background-color: #999;
   text-align: center;
   font-size: 35px;
   display: inline-block;
-  margin: 0px;
+  margin: 0 2px;
   height: 50px;
   width: 50px;
   text-shadow: 0 3px 0 #ccc;
