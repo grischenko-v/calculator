@@ -16,6 +16,16 @@ class App extends Component {
    this.forceUpdate();  
   }
 
+ getResualt(e){
+   this.resualStr = eval(this.resualStr).toString();
+   this.forceUpdate();  
+ }
+
+ cleanScreen(e){
+   this.resualStr = "";
+   this.forceUpdate(); 
+ }
+
   render(){
        return (
        <div className = "container">   
@@ -27,7 +37,7 @@ class App extends Component {
           <Buttom val = "m-"  getValue = {() => this.sendToScreen("1")}/>
           <Buttom val = "mr"  getValue = {() => this.sendToScreen("1")}/>
          
-          <Buttom val = "C"   getValue = {() => this.sendToScreen("1")}/>
+          <Buttom val = "C"   getValue = {() => this.cleanScreen()}/>
           <Buttom val = "^"   getValue = {() => this.sendToScreen("?")}/>
           <Buttom val = "/"   getValue = {() => this.sendToScreen("/")}/>
           <Buttom val = "*"   getValue = {() => this.sendToScreen("*")}/>        
@@ -50,7 +60,8 @@ class App extends Component {
                              getValue = {() => this.sendToScreen("0")}/>
           <Buttom val = "."  getValue = {() => this.sendToScreen(".")}/>   
       
-           <Buttom val = "=" styleName = "equil"/>    
+           <Buttom val = "=" styleName = "equil"
+                             getValue = {() => this.getResualt()}/>    
       </div>
      );
   }
