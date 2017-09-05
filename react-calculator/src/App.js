@@ -26,6 +26,11 @@ class App extends Component {
    this.forceUpdate(); 
  }
 
+ changeSign(){
+   this.resualStr = (-(+this.resualStr)).toString();
+   this.forceUpdate(); 
+ }
+
   render(){
        return (
        <div className = "container">   
@@ -38,7 +43,7 @@ class App extends Component {
           <Buttom val = "mr"  getValue = {() => this.sendToScreen("1")}/>
          
           <Buttom val = "C"   getValue = {() => this.cleanScreen()}/>
-          <Buttom val = "^"   getValue = {() => this.sendToScreen("?")}/>
+          <Buttom val = "+/-" getValue = {() => this.changeSign()}/>
           <Buttom val = "/"   getValue = {() => this.sendToScreen("/")}/>
           <Buttom val = "*"   getValue = {() => this.sendToScreen("*")}/>        
          
