@@ -40,6 +40,7 @@ body{
  	background: url(../img/brushed_alu.png);
  	text-align: center;
  	font-size: 35px;
+  vertical-align: center;
     display: inline-block;
  	margin: 0px;
     height: 50px;
