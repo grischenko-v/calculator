@@ -23,8 +23,10 @@ class App extends Component {
 
  getResualt(e){ 
     let resVal = this.state.resualStr;
-    let pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/; 
-    if(pattern_nums.test(resVal)) resVal=eval(resVal).toString(); 
+    let pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/;
+
+    if(/[0]+/.test(resVal)) resVal = "0";
+    else if(pattern_nums.test(resVal)) resVal=eval(resVal).toString(); 
     else if(this.state.resualStr.length == 0) resVal = "";
     else resVal = "Wrong Value"; 
     this.setState({
