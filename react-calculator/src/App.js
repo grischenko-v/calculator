@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Buttom from './Button/Button';
-
+import MainScreen from './mainScreen/MainScreen';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.resualStr = "";
-
+    this.memory = "";
+    this.charArray = ["/", "*", "7","8","9", "-",
+                     "4", "5", "6", "*", "1", "2", "3"];
   }
 
  sendToScreen(e) { 
@@ -31,41 +33,29 @@ class App extends Component {
    this.forceUpdate(); 
  }
 
-  render(){
-       return (
-       <div className = "container">   
+ createButtonRow(){
+   let buttonArr = [];
+   for(let i = 0; i < this.charArray.length; i++)
+       buttonArr.push( <Buttom val = {this.charArray[i]}   getValue = {() => this.sendToScreen(this.charArray[i])} key = {i}/>)
+   return buttonArr;  
+ }
 
-         <div className = "main-screen">{this.resualStr}</div>
-              
+  render(){
+       const buttons = this.createButtonRow();
+       return (
+        <div className = "container">  
+         <MainScreen resualStr= {this.resualStr}/>            
           <Buttom val = "mc"  getValue = {() => this.sendToScreen("1")}/>
           <Buttom val = "m+"  getValue = {() => this.sendToScreen("1")}/>
           <Buttom val = "m-"  getValue = {() => this.sendToScreen("1")}/>
-          <Buttom val = "mr"  getValue = {() => this.sendToScreen("1")}/>
-         
+          <Buttom val = "mr"  getValue = {() => this.sendToScreen("1")}/>         
           <Buttom val = "C"   getValue = {() => this.cleanScreen()}/>
           <Buttom val = "+/-" getValue = {() => this.changeSign()}/>
-          <Buttom val = "/"   getValue = {() => this.sendToScreen("/")}/>
-          <Buttom val = "*"   getValue = {() => this.sendToScreen("*")}/>        
-         
-          <Buttom val = "7"   getValue = {() => this.sendToScreen("7")}/>
-          <Buttom val = "8"   getValue = {() => this.sendToScreen("8")}/>
-          <Buttom val = "9"   getValue = {() => this.sendToScreen("9")}/>
-          <Buttom val = "-"   getValue = {() => this.sendToScreen("-")}/>
-     
-          <Buttom val = "4"   getValue = {() => this.sendToScreen("4")}/>
-          <Buttom val = "5"   getValue = {() => this.sendToScreen("5")}/>
-          <Buttom val = "6"   getValue = {() => this.sendToScreen("6")}/>
-          <Buttom val = "+"   getValue = {() => this.sendToScreen("+")}/>
-      
-          <Buttom val = "1"   getValue = {() => this.sendToScreen("1")}/>
-          <Buttom val = "2"   getValue = {() => this.sendToScreen("2")}/>
-          <Buttom val = "3"   getValue = {() => this.sendToScreen("3")}/>
-             
-        <Buttom val = "0" styleName = "zero" 
+          {buttons}
+          <Buttom val = "0" styleName = "zero" 
                              getValue = {() => this.sendToScreen("0")}/>
           <Buttom val = "."  getValue = {() => this.sendToScreen(".")}/>   
-      
-           <Buttom val = "=" styleName = "equil"
+          <Buttom val = "=" styleName = "equil"
                              getValue = {() => this.getResualt()}/>    
       </div>
      );
