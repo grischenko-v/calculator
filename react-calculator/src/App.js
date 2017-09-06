@@ -8,8 +8,10 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {resualStr: ""};
-    this.memory = "";
+    this.state = {
+      resualStr: "",
+      memory:    ""
+    };  
     this.charArray = ["/", "*", "7","8","9", "-",
                      "4", "5", "6", "*", "1", "2", "3"];
   }
@@ -37,7 +39,19 @@ class App extends Component {
       resualStr:  (-(+this.state.resualStr)).toString()
     });    
  }
+ saveInMem(){
 
+ }
+ saveInMemmin(){
+
+ }
+ cleanMem(){
+
+ }
+ readMem(){
+
+ }
+ 
  createButtonRow(){
    let buttonArr = [];
    for(let i = 0; i < this.charArray.length; i++)
