@@ -44,7 +44,9 @@
    -webkit-border-radius:  50%; 
    position: absolute;
    top: 355px;
+   line-height:  90px;
  }
+
   .zero{
    height: 50px;
    width: 100px;  
