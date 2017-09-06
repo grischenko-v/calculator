@@ -7,7 +7,6 @@ import MainScreen from './mainScreen/MainScreen';
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       resualStr: "",
       memory:    ""
@@ -24,10 +23,10 @@ class App extends Component {
 
  getResualt(e){ 
     let resVal = this.state.resualStr;
-    let pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/;  
+    let pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/; 
     if(pattern_nums.test(resVal)) resVal=eval(resVal).toString(); 
-    else resVal ="Wrong Value"; 
-
+    else if(this.state.resualStr.length == 0) resVal = "";
+    else resVal = "Wrong Value"; 
     this.setState({
       resualStr: resVal
     });     
@@ -40,8 +39,11 @@ class App extends Component {
  }
 
  changeSign(){
+  let val;
+  if(this.state.resualStr.length == 0) val = "";
+  else val = (-(+this.state.resualStr)).toString();
     this.setState({
-      resualStr:  (-(+this.state.resualStr)).toString()
+      resualStr: val 
     });    
  }
  saveInMem(){
