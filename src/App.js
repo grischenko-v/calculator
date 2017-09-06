@@ -47,15 +47,21 @@ class App extends Component {
     });    
  }
  saveInMem(){
-  console.log();
+  let val;
+  if(this.state.resualStr.length == 0) val = this.state.memory;
+  else val = (+this.state.resualStr + +this.state.memory).toString();
+  
    this.setState({
-      memory: (+this.state.resualStr + +this.state.memory).toString()
+      memory: val
    });   
  }
 
  saveInMemmin(){
+   let val;
+   if(this.state.resualStr.length == 0) val = this.state.memory;
+   else val =  (+(this.state.memory) - this.state.resualStr).toString();
    this.setState({
-      memory: (+(this.state.memory) - this.state.resualStr).toString()
+      memory: val
    });  
  }
  cleanMem(){
