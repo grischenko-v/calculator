@@ -7,30 +7,35 @@ import MainScreen from './mainScreen/MainScreen';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.resualStr = "";
+
+    this.state = {resualStr: ""};
     this.memory = "";
     this.charArray = ["/", "*", "7","8","9", "-",
                      "4", "5", "6", "*", "1", "2", "3"];
   }
 
- sendToScreen(e) { 
-   this.resualStr+=arguments[0];   
-   this.forceUpdate();  
+ sendToScreen(e) {    
+   this.setState({
+      resualStr: this.state.resualStr+arguments[0]
+    });
   }
 
- getResualt(e){
-   this.resualStr = eval(this.resualStr).toString();
-   this.forceUpdate();  
+ getResualt(e){   
+    this.setState({
+      resualStr:  eval(this.state.resualStr).toString()
+    });     
  }
 
  cleanScreen(e){
-   this.resualStr = "";
-   this.forceUpdate(); 
+     this.setState({
+      resualStr:  ""
+    });   
  }
 
  changeSign(){
-   this.resualStr = (-(+this.resualStr)).toString();
-   this.forceUpdate(); 
+    this.setState({
+      resualStr:  (-(+this.state.resualStr)).toString()
+    });    
  }
 
  createButtonRow(){
@@ -44,7 +49,7 @@ class App extends Component {
        const buttons = this.createButtonRow();
        return (
         <div className = "container">  
-         <MainScreen resualStr= {this.resualStr}/>            
+         <MainScreen resualStr= {this.state.resualStr}/>            
           <Buttom val = "mc"  getValue = {() => this.sendToScreen("1")}/>
           <Buttom val = "m+"  getValue = {() => this.sendToScreen("1")}/>
           <Buttom val = "m-"  getValue = {() => this.sendToScreen("1")}/>
