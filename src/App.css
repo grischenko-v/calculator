@@ -11,6 +11,7 @@
 }
 .container{   
    border: 1px solid grey;
+   position: relative;
    width: 240px;
    height: 450px;
    border-radius: 20px;
