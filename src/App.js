@@ -25,8 +25,9 @@ class App extends Component {
     let resVal = this.state.resualStr;
     let pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/;
 
-    if(/[0]+/.test(resVal)) resVal = "0";
-    else if(pattern_nums.test(resVal)) resVal=eval(resVal).toString(); 
+   // if(/[0]+/.test(resVal)) resVal = "0";
+    //else
+    if(pattern_nums.test(resVal)) resVal=eval(resVal).toString(); 
     else if(this.state.resualStr.length == 0) resVal = "";
     else resVal = "Wrong Value"; 
     this.setState({
@@ -99,7 +100,8 @@ class App extends Component {
           {buttons}
           <Buttom val = "0" styleName = "zero" 
                              getValue = {() => this.sendToScreen("0")}/>
-          <Buttom val = "."  getValue = {() => this.sendToScreen(".")}/>   
+          <Buttom val = "." styleName = "point"
+                             getValue = {() => this.sendToScreen(".")}/>   
           <Buttom val = "=" styleName = "equil"
                              getValue = {() => this.getResualt()}/>    
       </div>
