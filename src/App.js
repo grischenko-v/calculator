@@ -15,18 +15,24 @@ class App extends Component {
                      "4", "5", "6", "+", "1", "2", "3"];
   }
 
- sendToScreen(e) {    
+ sendToScreen(e) {  
+   let val;
+   if(/^[\.\*\/]$/.test(arguments[0]) && this.state.resualStr == "")
+     val = this.state.resualStr;
+   else if(arguments[0] == 0 && this.state.resualStr == "0") 
+     val = this.state.resualStr ;
+   else if(arguments[0] != 0 && this.state.resualStr == "0" && /^[1-9]$/.test(arguments[0]))
+     val = arguments[0];
+   else val = this.state.resualStr + arguments[0];
    this.setState({
-      resualStr: this.state.resualStr+arguments[0]
+      resualStr: val
     });
   }
 
  getResualt(e){ 
     let resVal = this.state.resualStr;
     let pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/;
-
-   // if(/[0]+/.test(resVal)) resVal = "0";
-    //else
+    let numPos;   
     if(pattern_nums.test(resVal)) resVal=eval(resVal).toString(); 
     else if(this.state.resualStr.length == 0) resVal = "";
     else resVal = "Wrong Value"; 
