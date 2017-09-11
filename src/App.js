@@ -16,24 +16,18 @@ class App extends Component {
   }
 
  sendToScreen(e) {  
-   let val;
-   if(/^[\.\*\/]$/.test(arguments[0]) && this.state.resualStr == "")
-     val = this.state.resualStr;
-   else if(arguments[0] == 0 && this.state.resualStr == "0") 
-     val = this.state.resualStr ;
-   else if(arguments[0] != 0 && this.state.resualStr == "0" && /^[1-9]$/.test(arguments[0]))
-     val = arguments[0];
-   else val = this.state.resualStr + arguments[0];
+   let val ="";  
+   if(/^((\d+)(\.(\d+))?[\+\/\*\-]?)+$/.test(this.state.resualStr + arguments[0]))
+     val = this.state.resualStr + arguments[0];
+   else val = this.state.resualStr;
    this.setState({
       resualStr: val
     });
   }
 
  getResualt(e){ 
-    let resVal = this.state.resualStr;
-    let pattern_nums = /((\d+?\.?\d+?)|(\d*?\.?\d+?)|(\d+?\.?\d*?))\s*(\s*[-+/*]\s*\d*\.\d*)*?$/;
-    let numPos;   
-    if(pattern_nums.test(resVal)) resVal=eval(resVal).toString(); 
+    let resVal = this.state.resualStr;   
+    if(/^(\d+(\.\d+)?[\+/\*/-]?)+$/.test(resVal)) resVal=eval(resVal).toString(); 
     else if(this.state.resualStr.length == 0) resVal = "";
     else resVal = "Wrong Value"; 
     this.setState({
