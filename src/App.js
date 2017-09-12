@@ -16,11 +16,16 @@ class App extends Component {
 
  checkValue(str){   
    let signMass = (str.match(/[+*/-]/g) === null) ? [] : str.match(/[+*/-]/g); 
-   console.log(str.split(/[+*/-]/));
-   let valueMas = str.split(/[+*/-]/).map(function(value){      
+  
+    console.log(signMass);
+   let valueMas;
+   if(str.length === 1 && str[0] === "-") valueMas = [];
+   else
+   valueMas = str.split(/[+*/-]/).map(function(value){             
        if(value.match(/[.]/g) !== null && value.match(/[.]/g).length === 1) return value; 
        return parseFloat(value);
     });
+    console.log(valueMas);
    let maxLen = (valueMas.length > signMass.length) ? valueMas.length : signMass.length;
    let ckeckedStr; 
    ckeckedStr = "";     
@@ -33,9 +38,16 @@ class App extends Component {
 };
 
  sendToScreen(e) {  
-   let val =""; 
-   if(/^[-]?((\d+)?(\.(\d+)?)?[+*/-]?)+$/.test(this.state.resualStr + arguments[0])){
+   let val ="";
+   let re = ((this.state.resualStr[0] === "-" || (this.state.resualStr === "" && arguments[0]) === "-"))
+            ?  /^(-((\d+?(\.(\d+)?)?[+*/-]?)?)+)$/
+            :  /^((\d+)(\.(\d+)?)?[+*/-]?)+$/;
+         console.log(this.state.resualStr + arguments[0]);
+        
+          console.log(re);    
+   if(re.test(this.state.resualStr + arguments[0])){
     val = this.state.resualStr + arguments[0];
+ 
     val = this.checkValue(val);
    }
    else val = this.state.resualStr;
@@ -46,7 +58,7 @@ class App extends Component {
 
  getResualt(e){ 
     let resVal = this.state.resualStr;   
-    if(/^(\d+|\d+\.\d+)([-+/*](\d+|\d+\.\d+))*?$/.test(resVal)) resVal=eval(resVal).toString();  
+    if(/^[-]?(\d+|\d+\.\d+)([-+/*](\d+|\d+\.\d+))*?$/.test(resVal)) resVal=eval(resVal).toString();  
     this.setState({
       resualStr: resVal
     });     
@@ -60,7 +72,7 @@ class App extends Component {
 
  changeSign(){
   let val;
-  if(!/[*+/-]/.test(this.state.resualStr)) val = (-(+this.state.resualStr)).toString();
+  if(/^-?\d+?(\.(\d+))?$/.test(this.state.resualStr)) val = (-this.state.resualStr).toString();
   else val = this.state.resualStr;
     this.setState({
       resualStr: val 
@@ -69,7 +81,7 @@ class App extends Component {
 
  saveInMem(){
   let val;
-  if(!/[*+/-]/.test(this.state.resualStr))  val = (+this.state.resualStr + +this.state.memory).toString();
+  if(/^-?\d+?(\.(\d+))?$/.test(this.state.resualStr))  val = (+this.state.resualStr + +this.state.memory).toString();
   else val = this.state.memory;  
   this.setState({
       memory: val
@@ -78,7 +90,7 @@ class App extends Component {
 
  saveInMemmin(){
   let val;
-  if(!/[*+/-]/.test(this.state.resualStr))  val = (+(this.state.memory) - this.state.resualStr).toString();
+  if(/^-?\d+?(\.(\d+))?$/.test(this.state.resualStr))  val = (+(this.state.memory) - this.state.resualStr).toString();
   else val = this.state.memory;    
    this.setState({
       memory: val
