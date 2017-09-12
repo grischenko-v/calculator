@@ -15,9 +15,7 @@ class App extends Component {
   };
 
  checkValue(str){   
-   let signMass = (str.match(/[+*/-]/g) === null) ? [] : str.match(/[+*/-]/g); 
-  
-    console.log(signMass);
+   let signMass = (str.match(/[+*/-]/g) === null) ? [] : str.match(/[+*/-]/g);  
    let valueMas;
    if(str.length === 1 && str[0] === "-") valueMas = [];
    else
@@ -25,7 +23,6 @@ class App extends Component {
        if(value.match(/[.]/g) !== null && value.match(/[.]/g).length === 1) return value; 
        return parseFloat(value);
     });
-    console.log(valueMas);
    let maxLen = (valueMas.length > signMass.length) ? valueMas.length : signMass.length;
    let ckeckedStr; 
    ckeckedStr = "";     
@@ -42,9 +39,6 @@ class App extends Component {
    let re = ((this.state.resualStr[0] === "-" || (this.state.resualStr === "" && arguments[0]) === "-"))
             ?  /^(-((\d+?(\.(\d+)?)?[+*/-]?)?)+)$/
             :  /^((\d+)(\.(\d+)?)?[+*/-]?)+$/;
-         console.log(this.state.resualStr + arguments[0]);
-        
-          console.log(re);    
    if(re.test(this.state.resualStr + arguments[0])){
     val = this.state.resualStr + arguments[0];
  
