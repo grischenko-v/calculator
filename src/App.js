@@ -12,10 +12,11 @@ class App extends Component {
     };  
     this.charArray = ["/", "*", "7","8","9", "-",
                      "4", "5", "6", "+", "1", "2", "3"];
-  }
+  };
 
  checkValue(str){   
    let signMass = (str.match(/[+*/-]/g) === null) ? [] : str.match(/[+*/-]/g); 
+   console.log(str.split(/[+*/-]/));
    let valueMas = str.split(/[+*/-]/).map(function(value){      
        if(value.match(/[.]/g) !== null && value.match(/[.]/g).length === 1) return value; 
        return parseFloat(value);
@@ -24,6 +25,7 @@ class App extends Component {
    let ckeckedStr; 
    ckeckedStr = "";     
    for(let i = 0; i < maxLen; i++ ){
+
     if(valueMas[i] || valueMas[i] === 0)ckeckedStr += valueMas[i];
     if(signMass[i]) ckeckedStr += signMass[i];   
    }    
@@ -32,7 +34,7 @@ class App extends Component {
 
  sendToScreen(e) {  
    let val =""; 
-   if(/^((\d+)(\.(\d+)?)?[+*/-]?)+$/.test(this.state.resualStr + arguments[0])){
+   if(/^[-]?((\d+)?(\.(\d+)?)?[+*/-]?)+$/.test(this.state.resualStr + arguments[0])){
     val = this.state.resualStr + arguments[0];
     val = this.checkValue(val);
    }
@@ -40,7 +42,7 @@ class App extends Component {
    this.setState({
       resualStr: val
     });
-  }
+  };
 
  getResualt(e){ 
     let resVal = this.state.resualStr;   
@@ -48,58 +50,58 @@ class App extends Component {
     this.setState({
       resualStr: resVal
     });     
- }
+ };
 
  cleanScreen(e){
      this.setState({
       resualStr:  ""
     });   
- }
+ };
 
  changeSign(){
   let val;
-  if(this.state.resualStr.length === 0) val = "";
-  else val = (-(+this.state.resualStr)).toString();
+  if(!/[*+/-]/.test(this.state.resualStr)) val = (-(+this.state.resualStr)).toString();
+  else val = this.state.resualStr;
     this.setState({
       resualStr: val 
     });    
- }
+ };
+
  saveInMem(){
   let val;
-  if(this.state.resualStr.length === 0) val = this.state.memory;
-  else val = (+this.state.resualStr + +this.state.memory).toString();
-  
-   this.setState({
+  if(!/[*+/-]/.test(this.state.resualStr))  val = (+this.state.resualStr + +this.state.memory).toString();
+  else val = this.state.memory;  
+  this.setState({
       memory: val
    });   
- }
+ };
 
  saveInMemmin(){
-   let val;
-   if(this.state.resualStr.length === 0) val = this.state.memory;
-   else val =  (+(this.state.memory) - this.state.resualStr).toString();
+  let val;
+  if(!/[*+/-]/.test(this.state.resualStr))  val = (+(this.state.memory) - this.state.resualStr).toString();
+  else val = this.state.memory;    
    this.setState({
       memory: val
    });  
- }
+ };
  cleanMem(){
   this.setState({
     memory: ""
   })
- }
+ };
 
  readMem(){
     this.setState({
       resualStr: this.state.memory
    })
- }
+ };
  
  createButtonRow(){
    let buttonArr = [];
    for(let i = 0; i < this.charArray.length; i++)
        buttonArr.push( <Buttom val = {this.charArray[i]}   getValue = {() => this.sendToScreen(this.charArray[i])} key = {i}/>)
    return buttonArr;  
- }
+ };
 
   render(){
        const buttons = this.createButtonRow();
