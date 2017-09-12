@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Buttom from './Button/Button';
 import MainScreen from './mainScreen/MainScreen';
@@ -15,10 +14,28 @@ class App extends Component {
                      "4", "5", "6", "+", "1", "2", "3"];
   }
 
+ checkValue(str){   
+   let signMass = (str.match(/[+*/-]/g) === null) ? [] : str.match(/[+*/-]/g); 
+   let valueMas = str.split(/[+*/-]/).map(function(value){      
+       if(value.match(/[.]/g) !== null && value.match(/[.]/g).length === 1) return value; 
+       return parseFloat(value);
+    });
+   let maxLen = (valueMas.length > signMass.length) ? valueMas.length : signMass.length;
+   let ckeckedStr; 
+   ckeckedStr = "";     
+   for(let i = 0; i < maxLen; i++ ){
+    if(valueMas[i] || valueMas[i] === 0)ckeckedStr += valueMas[i];
+    if(signMass[i]) ckeckedStr += signMass[i];   
+   }    
+   return ckeckedStr;
+};
+
  sendToScreen(e) {  
-   let val ="";  
-   if(/^((\d+)(\.(\d+))?[\+\/\*\-]?)+$/.test(this.state.resualStr + arguments[0]))
-     val = this.state.resualStr + arguments[0];
+   let val =""; 
+   if(/^((\d+)(\.(\d+)?)?[+*/-]?)+$/.test(this.state.resualStr + arguments[0])){
+    val = this.state.resualStr + arguments[0];
+    val = this.checkValue(val);
+   }
    else val = this.state.resualStr;
    this.setState({
       resualStr: val
@@ -27,9 +44,7 @@ class App extends Component {
 
  getResualt(e){ 
     let resVal = this.state.resualStr;   
-    if(/^(\d+(\.\d+)?[\+/\*/-]?)+$/.test(resVal)) resVal=eval(resVal).toString(); 
-    else if(this.state.resualStr.length == 0) resVal = "";
-    else resVal = "Wrong Value"; 
+    if(/^(\d+|\d+\.\d+)([-+/*](\d+|\d+\.\d+))*?$/.test(resVal)) resVal=eval(resVal).toString();  
     this.setState({
       resualStr: resVal
     });     
@@ -43,7 +58,7 @@ class App extends Component {
 
  changeSign(){
   let val;
-  if(this.state.resualStr.length == 0) val = "";
+  if(this.state.resualStr.length === 0) val = "";
   else val = (-(+this.state.resualStr)).toString();
     this.setState({
       resualStr: val 
@@ -51,7 +66,7 @@ class App extends Component {
  }
  saveInMem(){
   let val;
-  if(this.state.resualStr.length == 0) val = this.state.memory;
+  if(this.state.resualStr.length === 0) val = this.state.memory;
   else val = (+this.state.resualStr + +this.state.memory).toString();
   
    this.setState({
@@ -61,7 +76,7 @@ class App extends Component {
 
  saveInMemmin(){
    let val;
-   if(this.state.resualStr.length == 0) val = this.state.memory;
+   if(this.state.resualStr.length === 0) val = this.state.memory;
    else val =  (+(this.state.memory) - this.state.resualStr).toString();
    this.setState({
       memory: val
