@@ -16,10 +16,8 @@ class App extends Component {
 
  checkValue(str){   
    let signMass = (str.match(/[+*/-]/g) === null) ? [] : str.match(/[+*/-]/g);  
-   let valueMas;
-   if(str.length === 1 && str[0] === "-") valueMas = [];
-   else
-   valueMas = str.split(/[+*/-]/).map(function(value){             
+   let valueMas = (str.length === 1 && str[0] === "-") ? [] :
+    str.split(/[+*/-]/).map(function(value){             
        if(value.match(/[.]/g) !== null && value.match(/[.]/g).length === 1) return value; 
        return parseFloat(value);
     });
